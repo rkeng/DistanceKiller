@@ -98,11 +98,6 @@
    background-color: #ffffff; 
  }
 
-.center-screen {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   min-height: 100vh;
-}
+ .under-h1 {
+    margin-top: 100px;
+ }
