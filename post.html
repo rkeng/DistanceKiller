@@ -12,7 +12,6 @@
    <link rel="apple-touch-icon" href="icon.png">
    <!-- Place favicon.ico in the root directory -->
 
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
    <link rel="stylesheet" href="css/normalize.css">
@@ -20,12 +19,10 @@
 </head>
 <body>
 	<div class="container page-margin">
-		<h1>Share your moment and mark your family map</h1>
-		<div class="form-group top-buffer left-buffer right-buffer">
-			<textarea class="form-control" rows="10" placeholder="What do you want to share?"></textarea>
-			</div>
-			<fieldset class="form-group top-buffer left-buffer right-buffer">
-				<a href="" class="btn btn-success">Location</a>
+		<h1>Mark your family map</h1>
+		<fieldset class="form-group">
+			<a href="" class="btn btn-success btn-spacing"><i class="fas fa-map-pin"></i>&nbsp;&nbsp;Location</a>
+			<div class="float-right">
 				<div class="form-check" style="display:inline-block">
 					<label class="form-check-label">
 						<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -38,33 +35,37 @@
 						Travel
 					</label>
 				</div>
-				<div class="form-check disabled" style="display:inline-block">
+				<div class="form-check" style="display:inline-block">
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+						<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
 						Food
 					</label>
 				</div>
-				<div class="form-check disabled" style="display:inline-block">
+				<div class="form-check" style="display:inline-block">
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios4" value="option4" disabled>
+						<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios4" value="option4">
 						Fun
 					</label>
 				</div>
-			
-				<div class="fixed-bottom">
-					<div class="float-left text-center top-buffer bottom-left-spacing">
-						<div>
-							<input type="file" class="btn btn-secondary">
-						</div>	
-					</div>
-					<div class="float-right text-center top-buffer bottom-right-spacing">
-						<div>
-							<a class="btn btn-primary">SEND</a>
-							<a href="./index.html" class="btn btn-light">CANCEL</a>
-						</div>
+			</div>
+
+			<div class="form-group">
+				<textarea class="form-control" rows="10" placeholder="What do you want to share?"></textarea>
+			</div>
+
+			<div>
+				<input type="file" class="btn btn-secondary">
+			</div>
+		
+			<div class="fixed-bottom">
+				<div class="float-right text-center bottom-right-spacing">
+					<div>
+						<a class="btn btn-primary">SEND</a>
+						<a href="./index.html" class="btn btn-light">CANCEL</a>
 					</div>
 				</div>
-			</fieldset>
+			</div>
+		</fieldset>
 	</div>
 
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
