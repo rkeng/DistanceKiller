@@ -4,6 +4,15 @@
 
 .avatar-align {
    display: inline-block;
+   position: relative;
+}
+
+.avatar-minus {
+   cursor: pointer;
+   color: red;
+   position:absolute;
+   top: 0;
+   right: 0;
 }
 
 .btn-feed { 
