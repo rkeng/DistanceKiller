@@ -130,6 +130,16 @@ textarea {
 	min-height: 100vh;
  }
 
+ .center-screen-ls {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* text-align: center; */
+	min-height: 100vh;
+ }
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
