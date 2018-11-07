@@ -130,6 +130,15 @@ textarea {
 	min-height: 100vh;
  }
 
+/* center screen for login and signup pages */
+.center-screen-ls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
