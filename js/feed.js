@@ -42,16 +42,22 @@ for (var i = 0; i < feeds.length; i++) {
       + '<hr>'
       + '<p class="card-text" id="' + feedId + '-text">' + feeds[i].text + '</p>'
       + '<div class="text-right" style="padding-bottom:10px; padding-top:10px">'
-      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].time + '</p>' 
-      + '<button class="btn btn-outline-success" type= "button"' + feedId + " >Like this feed</button >";
+      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].time + '</p>'; 
+      // + '<button class="btn btn-outline-success" style="margin-right:3px" type= "button"' + feedId + " >Like feed</button >";
 
-      if(feeds[i].owner == "Joy"){
-        newCardHTML += '<button class="btn btn-outline-warning" style="padding-left:10px" type= "button"' + feedId + " > Delete feed</button >"
+      console.log(sessionStorage.getItem('loginStatus'));
+      if(feeds[i].owner == JSON.parse(sessionStorage.getItem('loginStatus')).user.cred.name){
+        newCardHTML += '<button class="btn btn-outline-danger" onclick="deleteFeed(\'' + feedId + '\')">Delete feed</button>';
       }
 
   newCard.innerHTML = newCardHTML;
   var parent = document.getElementById("feedSection");
   parent.appendChild(newCard);
+}
+
+function deleteFeed(id) {
+  var child = document.getElementById(id);
+  child.parentNode.removeChild(child);
 }
 
 // function scrollIt(element) {
