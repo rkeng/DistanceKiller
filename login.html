@@ -19,6 +19,11 @@
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/main.css">
    <link rel="stylesheet" href="css/login.css">
+
+   <script>
+      // redirect to home page if logged in
+      if (sessionStorage.getItem('loginStatus')) location.href = "./";
+   </script>
 </head>
 
 <body>
@@ -61,27 +66,7 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
 
-
-   <script>
-      $(document).ready(function () {
-         //$('#username').focus();
-
-         $('#loginBtn').click(function () {
-
-            event.preventDefault(); // prevent PageReLoad
-
-            var ValidEmail = $('#emailInput').val() === 'hello@ucsd.edu'; // User validate
-            var ValidPassword = $('#passwordInput').val() === 'hello'; // Password validate
-
-            if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
-               window.location = "./"; // go to home.html
-            }
-            else {
-               $('#loginError').removeClass('invisible').addClass('visible'); // show error msg
-            }
-         });
-      });
-   </script>
+   <script src="js/login.js"></script>
 </body>
 
 </html>
