@@ -24,7 +24,6 @@
 		// redirect to login page if not logged in
 		if (!sessionStorage.getItem('loginStatus')) location.href = "./login.html";
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAopqUmAMX-wPB-KsCvEJWiUozgtxfmYmM&libraries=places"></script>
 </head>
 
 <body>
@@ -114,7 +113,7 @@
 			});
 		}
 
-		google.maps.event.addDomListener(window, 'load', init);
+		// google.maps.event.addDomListener(window, 'load', init);
 
 		$(function () {
 			$('#confirmBtn').click(function () {
@@ -144,6 +143,9 @@
 			});
 		})
 	</script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAopqUmAMX-wPB-KsCvEJWiUozgtxfmYmM&libraries=places&callback=init"></script>
+
 </body>
 
 </html>
