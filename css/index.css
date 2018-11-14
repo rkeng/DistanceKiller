@@ -110,3 +110,15 @@
  .under-h1 {
     margin-top: 100px;
  }
+
+ .badge-travel {
+  font-size: bold;
+  color: white;
+  background-color: #9900cc;
+}
+
+.badge-food {
+  font-size: bold;
+  color: white;
+  background-color:#ffb727;
+}
