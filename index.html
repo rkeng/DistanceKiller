@@ -35,25 +35,18 @@
 	<div class="container page-margin">
 		<h1 id="welcome">Welcome to DistanceKiller</h1>
 		<div class="row under-h1">
-			<div class="col-md-4">
+			<div class="col-md-4 text-center">
 				<a href="./post.html" class="btn btn-success btn-spacing">Mark your family map&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
 				<a href="./feed.html" class="btn btn-feed btn-spacing">View your family feeds&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
-				<a href="./map.html" class="btn btn-map">View your family map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
+				<a href="./map.html" class="btn btn-map btn-spacing">View your family map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
+				<p>More family members to add?<br> Here's your family code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i
+					class="fas fa-md fa-question-circle"></i></span>:<br>
+				<code id="codeDisplay"></code><br> Share it with your family.</p>
 			</div>
-			<div class="col-md-8">
-				<div class="avatar-align text-center">
+			<div class="col-md-8" id="avatarBlock">
+				<div class="avatar-align text-center" id="curUser">
 					<span class="avatar"><i class="fas fa-6x fa-user-circle"></i></span><br>
-					<span>Joy</span>
-				</div>
-				<div class="avatar-align text-center" id="Ryan">
-					<span class="avatar-minus" data-id="Ryan" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-minus-circle"></i></span>
-					<span class="avatar"><i class="fas fa-6x fa-user-circle"></i></span><br>
-					<span>Ryan</span>
-				</div>
-				<div class="avatar-align text-center" id="Ying">
-					<span class="avatar-minus" data-id="Ying" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-minus-circle"></i></span>
-					<span class="avatar"><i class="fas fa-6x fa-user-circle"></i></span><br>
-					<span>Ying</span>
+					<span class="avatar-name"></span>
 				</div>
 			</div>
 		</div>
@@ -61,13 +54,6 @@
 			<a href="./profile.html">
 				<span class="float-right text-center top-right-spacing"><i class="fas fa-3x fa-cog" style="color:black"></i></span>
 			</a>
-		</div>
-		<div class="fixed-bottom">
-			<span class="float-right text-center bottom-right-spacing">
-				More family members to add?<br> Here's your family code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i
-					 class="fas fa-md fa-question-circle"></i></span>:<br>
-				<code>X9HZ75O</code><br> Share it with your family
-			</span>
 		</div>
 	</div>
 

@@ -1,10 +1,19 @@
 $(function() {
    let users;
+   let families;
 
    if (sessionStorage.getItem('users')) {
       users = JSON.parse(sessionStorage.getItem('users'));
    } else {
       users = [];
+   }
+
+   if (sessionStorage.getItem('families')) {
+      families = JSON.parse(sessionStorage.getItem('families'));
+   } else {
+      families = [
+         {code: "ABC123", members:["jdoe@ucsd.edu"]}
+      ];
    }
 
    $('#signupBtn').click(function () {
@@ -17,6 +26,7 @@ $(function() {
       let signupName = $('#signup-fmlyr').val();
       let signupPwd = $('#signup-password').val();
       let signupConfirmPwd = $('#signup-confirm-password').val();
+      let signupFamilyCode = $('#signup-fmlycode').val();
 
       if (!signupEmail || !signupName || !signupPwd || !signupConfirmPwd) {
          alert("Please fill in all required fields.");
@@ -31,6 +41,36 @@ $(function() {
       }
       if (invalidInput) return;
 
+      // family code
+      if (!signupFamilyCode) {
+         // if no input for family code, generate a unique code
+         signupFamilyCode = generateCode();
+
+         let familyInstance = {
+            code: signupFamilyCode,
+            members: [signupEmail]
+         }
+
+         families.push(familyInstance);
+         sessionStorage.setItem('families', JSON.stringify(families));
+
+      } else {
+         let codeFound = false;
+         families.forEach(f => {
+            if (f.code == signupFamilyCode) {
+               // add user to family if code exists
+               codeFound = true;
+               f.members.push(signupEmail);
+               sessionStorage.setItem('families', JSON.stringify(families));
+            }
+         });
+         // return immediately if code does not exist
+         if (!codeFound) {
+            alert("Family code invalid.");
+            return;
+         }
+      }
+
       // check if email is registered
       users.forEach(user => {
          if (user.email === signupEmail) {
@@ -42,6 +82,7 @@ $(function() {
 
       let user = {
          email: signupEmail,
+         code: signupFamilyCode,
          cred: {
             name: signupName,
             pwd: signupPwd
@@ -54,3 +95,16 @@ $(function() {
       window.location = "./login.html";
    });
 });
+
+// random family code generator
+let letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
+let numbers = '0123456789'.split('');
+let codePool = letters.concat(numbers);
+
+function generateCode() {
+      let code = "";
+      for(let i=0; i<6; i++) {
+         code += codePool[Math.floor(Math.random()*codePool.length)]
+      }
+   return code;
+}
