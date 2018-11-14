@@ -52,7 +52,7 @@ $(function () {
 				'<div class="avatar-align text-center" id="'+nameEmailPairs[name]+'">'+
 					'<span class="avatar-minus" data-id="'+nameEmailPairs[name]+'" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-minus-circle"></i></span>'+
 					'<span class="avatar"><i class="fas fa-6x fa-user-circle"></i></span><br>'+
-					'<span class="avatar-name>'+name+'</span>'+
+					'<span class="avatar-name">'+name+'</span>'+
 				'</div>');
 		}
 	})
