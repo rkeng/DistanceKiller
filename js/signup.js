@@ -5,14 +5,18 @@ $(function() {
    if (sessionStorage.getItem('users')) {
       users = JSON.parse(sessionStorage.getItem('users'));
    } else {
-      users = [];
+      users = [
+         {email: "ryan@ucsd.edu", code: "UCSD19", cred: {name: "Ryan", pwd: "123"}},
+         {email: "joy@ucsd.edu", code: "UCSD19", cred: {name: "Joy", pwd: "123"}},
+         {email: "ying@ucsd.edu", code: "UCSD19", cred: {name: "Ying", pwd: "123"}}
+      ];
    }
 
    if (sessionStorage.getItem('families')) {
       families = JSON.parse(sessionStorage.getItem('families'));
    } else {
       families = [
-         {code: "ABC123", members:["jdoe@ucsd.edu"]}
+         {code: "UCSD19", members:["ryan@ucsd.edu", "joy@ucsd.edu", "ying@ucsd.edu"]}
       ];
    }
 
@@ -95,16 +99,3 @@ $(function() {
       window.location = "./login.html";
    });
 });
-
-// random family code generator
-let letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
-let numbers = '0123456789'.split('');
-let codePool = letters.concat(numbers);
-
-function generateCode() {
-      let code = "";
-      for(let i=0; i<6; i++) {
-         code += codePool[Math.floor(Math.random()*codePool.length)]
-      }
-   return code;
-}

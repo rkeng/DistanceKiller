@@ -4,7 +4,11 @@ $(function() {
    if (sessionStorage.getItem('users')) {
       users = JSON.parse(sessionStorage.getItem('users'));
    } else {
-      users = [];
+      users = [
+         {email: "ryan@ucsd.edu", code: "UCSD19", cred: {name: "Ryan", pwd: "123"}},
+         {email: "joy@ucsd.edu", code: "UCSD19", cred: {name: "Joy", pwd: "123"}},
+         {email: "ying@ucsd.edu", code: "UCSD19", cred: {name: "Ying", pwd: "123"}}
+      ];
    }
 
    // get loginStatus
