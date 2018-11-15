@@ -17,17 +17,19 @@ $(function () {
       users = JSON.parse(sessionStorage.getItem('users'));
    } else {
 		users = [
-         {email: "ryan@ucsd.edu", code: "UCSD19", cred: {name: "Ryan", pwd: "123"}},
+         {email: "ryan@ucsd.edu", code: "UCSD19", cred: {name: "Ryan", pwd: "123", dob: "1996-12-06"}},
          {email: "joy@ucsd.edu", code: "UCSD19", cred: {name: "Joy", pwd: "123"}},
          {email: "ying@ucsd.edu", code: "UCSD19", cred: {name: "Ying", pwd: "123"}}
-      ];
+		];
+		sessionStorage.setItem('users', JSON.stringify(users));
 	}
 	if (sessionStorage.getItem('families')) {
       families = JSON.parse(sessionStorage.getItem('families'));
    } else {
       families = [
-         {code: "UCSD19", members:["ryan@ucsd.edu", "joy@ucsd.edu", "ying@ucsd.edu"]}
-      ];
+      	{code: "UCSD19", members:["ryan@ucsd.edu", "joy@ucsd.edu", "ying@ucsd.edu"]}
+		];
+		sessionStorage.setItem('families', JSON.stringify(families));
    }
 	
 	let fMemEmail = [];
