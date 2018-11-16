@@ -10,7 +10,6 @@ var i;
 var feeds;
 if (sessionStorage.getItem('posts')) {
   feeds = JSON.parse(sessionStorage.getItem('posts'));
-  console.log(feeds)
 
   // var feed1 = new Feed("Work", "Super frustrated today...", "DistanceKiller co.", "Joy","10/03/2018 20:45pm");
   // var feed2 = new Feed("Food", "I don't think it is a good restaurant, not recommended", "Chipotle @ Genesee Ave.", "Joy","10/03/2018 22:45pm");
@@ -21,23 +20,22 @@ if (sessionStorage.getItem('posts')) {
   for (var i = 0; i < feeds.length; i++) {
     var newCard = document.createElement("div");
     newCard.className = "col-sm-6";
-    var feedId = new String(feeds[i].timestamp) + new String(feeds[i].owner) + $('#locationTextField').val();
+    var feedId = feeds[i].uniqueId;
     newCard.setAttribute("id", feedId);
     var newCardHTML = '<div class="bootstrap-overrides">'
       + '<div class="card">'
       + '<div class="card-header">';
     if (feeds[i].category == "food") {
-      newCardHTML += '<div class="food" id="' + feedId + '>Food</div>';
+      newCardHTML += '<div class="food" id="' + feedId + '">Food</div>';
     }
     else if (feeds[i].category == "travel") {
-      newCardHTML += '<div class="travel" id="' + feedId + '>Travel</div>'
-        + '<div class="travel" id="' + feedId + '>Travel</div>';
+      newCardHTML += '<div class="travel" id="' + feedId + '">Travel</div>';
     }
     else if (feeds[i].category == "work") {
-      newCardHTML += '<div class="work" id="' + feedId + '>Work</div>';
+      newCardHTML += '<div class="work" id="' + feedId + '">Work</div>';
     }
     else {
-      newCardHTML += '<div class="fun" id="' + feedId + '>Fun</div>';
+      newCardHTML += '<div class="fun" id="' + feedId + '">Fun</div>';
     }
 
     newCardHTML += '<div class="feed-loc" id="feed' + feeds[i].location + '-loc">' + feeds[i].location + '</div>'
@@ -63,13 +61,7 @@ if (sessionStorage.getItem('posts')) {
   function deleteFeed(id) {
     var child = document.getElementById(id);
     child.parentNode.removeChild(child);
-    for (var i = 0; i < feeds.length; i++) {
-      var index;
-      if (feeds[i].uniqueId == id) {index = i;}
-      if (index !== -1) {feeds.splice(index, 1);}
-    }     
-    console.log(feeds)
-    console.log()
+    feeds = feeds.filter(function(el) { return el.uniqueId != id; }); 
     sessionStorage.setItem('posts', JSON.stringify(feeds));
   }
 }
