@@ -15,6 +15,10 @@
    right: 0;
 }
 
+.avatar-width {
+	width: 110px;
+}
+
 .btn-feed { 
    color: #ffffff; 
    background-color: #FF6600; 
