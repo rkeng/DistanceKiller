@@ -21,6 +21,7 @@ $(function () {
 
       let invalidInput = false;
 
+      let avatarURL = $('#hide-image').attr('src');
       let profileName = $('#name').val();
       let profileDOB = $('#birthDate').val();
       let profilePwd = $('#newpass').val();
@@ -32,6 +33,19 @@ $(function () {
          invalidInput = true;
       }
       if (invalidInput) return;
+
+      // update avatar
+      if (avatarURL) {
+         if (avatarURL == "./img/profile1.png") loginStatus.user.cred.avtr = 1;
+         if (avatarURL == "./img/profile2.png") loginStatus.user.cred.avtr = 2;
+         if (avatarURL == "./img/profile3.png") loginStatus.user.cred.avtr = 3;
+         if (avatarURL == "./img/profile4.png") loginStatus.user.cred.avtr = 4;
+         if (avatarURL == "./img/profile5.png") loginStatus.user.cred.avtr = 5;
+         if (avatarURL == "./img/profile6.png") loginStatus.user.cred.avtr = 6;
+         if (avatarURL == "./img/profile7.png") loginStatus.user.cred.avtr = 7;
+         if (avatarURL == "./img/profile8.png") loginStatus.user.cred.avtr = 8;
+         if (avatarURL == "./img/profile9.png") loginStatus.user.cred.avtr = 9;
+      }
 
       // update name
       if (profileName != curUser.cred.name) {
