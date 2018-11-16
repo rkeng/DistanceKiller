@@ -176,7 +176,8 @@
 					});
 
 					var infowndw = new google.maps.InfoWindow({
-						content: post.content
+						content: post.name + " posted: "+ "<BR/>" + post.content + "<BR/>"+" on " + post.date
+
 					});
 
 					mkr.addListener('click', function () {

@@ -21,6 +21,7 @@ $(function () {
       });
 
       var contentString = post.content;
+      console.log(contentString);
       var infowindow = new google.maps.InfoWindow({
          content: contentString
       });
