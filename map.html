@@ -104,12 +104,18 @@
 			});
 
 			var contentString = 'Ying wants to visit here!';
+			var currentLoc = 'Your current location is here!';
 
 			var infowindow = new google.maps.InfoWindow({
 				content: contentString
 			});
 
+			var infowindow2 = new google.maps.InfoWindow({
+				content: currentLoc
+			});
+
 			var image = './img/purple.png';
+			var image1 = './img/red.png';
 			var marker = new google.maps.Marker({
 				position: { lat: -33.890, lng: 151.274 },
 				map: map,
@@ -120,8 +126,42 @@
 				infowindow.open(map, marker);
 			})
 
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					infowindow2.setPosition(pos);
+					infowindow2.setContent('You are here!');
+					var marker2 = new google.maps.Marker({
+						position: { lat: position.coords.latitude, lng: position.coords.longitude },
+						map: map,
+						icon: image1
+					});
+					infowindow2.open(map);
+					map.setCenter(pos);
+				}, function () {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+			} else {
+				// Browser doesn't support Geolocation
+				handleLocationError(false, infoWindow, map.getCenter());
+			}
+
+			// var image = './img/purple.png';
+
+			marker.addListener('click', function () {
+				infowindow2.open(map, marker2);
+			})
+
 			var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 			var icons = {
+				currloc: {
+					name: 'Current Location',
+					icon: '../img/red.png'
+				},
 				work: {
 					name: 'Work',
 					icon: '../img/blue.png'
@@ -176,7 +216,7 @@
 					});
 
 					var infowndw = new google.maps.InfoWindow({
-						content: post.name + " posted: "+ "<BR/>" + post.content + "<BR/>"+" on " + post.date
+						content: post.name + " posted: " + "<BR/>" + post.content + "<BR/>" + " on " + post.date
 
 					});
 
@@ -192,8 +232,7 @@
 		* The key parameter will contain your own API key (which is not needed for this tutorial)
 		* The callback parameter executes the initMap() function
 		-->
-	<script async defer 
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJwIni_tdDIFJl2dTESyFHkinVemJN96w&callback=initMap">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJwIni_tdDIFJl2dTESyFHkinVemJN96w&callback=initMap">
 	</script>
 </body>
 
