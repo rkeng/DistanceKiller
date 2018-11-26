@@ -139,12 +139,12 @@
 				let name = JSON.parse(sessionStorage.getItem('loginStatus')).user.cred.name;
 				let owner = JSON.parse(sessionStorage.getItem('loginStatus')).user.email;
 				let date = monthDateYear;
-				let location = $('#locationTextField').val();
+				let loc = $('#locationTextField').val();
 				let latitude = parseFloat($('#lat').val());
 				let longitude = parseFloat($('#lng').val());
 				let timestamp = currentDate.getTime();
 
-				if (!content || !location) {
+				if (!content || !loc) {
 					alert("Please fill in all required fields.");
 					return;
 				}
@@ -165,7 +165,7 @@
 						lat: latitude,
 						lng: longitude
 					},
-					location: $('#locationTextField').val(),
+					location: loc,
 					uniqueId: timestamp + owner + $('#locationTextField').val()
 				}
 
