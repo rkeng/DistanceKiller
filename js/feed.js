@@ -54,7 +54,7 @@ if (sessionStorage.getItem('posts')) {
 
     console.log(sessionStorage.getItem('loginStatus'));
     if (feeds[i].owner == JSON.parse(sessionStorage.getItem('loginStatus')).user.email) {
-      newCardHTML += '<button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete feed</button>';
+      newCardHTML += '<button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete Post</button>';
       // <!-- Modal -->
       newCardHTML += '<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">'
         + '<div class="modal-dialog modal-dialog-centered" role="document">'
@@ -90,4 +90,13 @@ if (sessionStorage.getItem('posts')) {
     feeds = feeds.filter(function (el) { return el.uniqueId != id; });
     sessionStorage.setItem('posts', JSON.stringify(feeds));
   }
+}
+
+var btns = document.getElementsByClassName("btn-secondary");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
 }
