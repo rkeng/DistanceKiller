@@ -44,8 +44,10 @@ if (sessionStorage.getItem('posts')) {
       + '<h5 class="card-title" id="feed' + feedId + '-owner">' + feeds[i].name + '</h5>'
       + '<hr>'
       + '<p class="card-text" id="' + feedId + '-text">' + feeds[i].content + '</p>'
+      + '<img class="img-fluid" src="' + feeds[i].imgData + '" alt="Post Image">'
       + '<div class="text-right" style="padding-bottom:10px; padding-top:10px">'
-      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].date + '</p>';
+      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].date + '</div>'
+      + '</div>';
     // + '<button class="btn btn-outline-success" style="margin-right:3px" type= "button"' + feedId + " >Like feed</button >";
 
     console.log(sessionStorage.getItem('loginStatus'));

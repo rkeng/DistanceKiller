@@ -103,28 +103,28 @@
 				center: { lat: 0, lng: 0 }
 			});
 
-			var contentString = 'Ying wants to visit here!';
+			// var contentString = 'Ying wants to visit here!';
 			var currentLoc = 'Your current location is here!';
 
-			var infowindow = new google.maps.InfoWindow({
-				content: contentString
-			});
+			// var infowindow = new google.maps.InfoWindow({
+			// 	content: contentString
+			// });
 
 			var infowindow2 = new google.maps.InfoWindow({
 				content: currentLoc
 			});
 
-			var image = './img/purple.png';
+			// var image = './img/purple.png';
 			var image1 = './img/red.png';
 			var marker = new google.maps.Marker({
-				position: { lat: -33.890, lng: 151.274 },
-				map: map,
-				icon: image
+				// position: { lat: -33.890, lng: 151.274 },
+				// map: map,
+				// icon: image
 			});
 
-			marker.addListener('click', function () {
-				infowindow.open(map, marker);
-			})
+			// marker.addListener('click', function () {
+			// 	infowindow.open(map, marker);
+			// })
 
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function (position) {
@@ -216,8 +216,11 @@
 					});
 
 					var infowndw = new google.maps.InfoWindow({
-						content: post.name + " posted: " + "<BR/>" + post.content + "<BR/>" + " on " + post.date
-
+						content:
+							post.name + " posted: " + "<br>"
+							+ post.content + "<br>"
+							+ " on " + post.date + "<br>"
+							+ '<img class="img-fluid" src="' + post.imgData + '" alt="Post Image" style="max-width:100px;">'
 					});
 
 					mkr.addListener('click', function () {
