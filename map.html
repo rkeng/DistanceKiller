@@ -215,12 +215,11 @@
 						map: map
 					});
 
+					let contentStr =  post.name + " posted: <br>" + post.content + "<br> on " + post.date+ "<br>";
+					if (!post.imgData.endsWith("post.html")) contentStr += '<img class="img-fluid" src="' + post.imgData + '" alt="Post Image" style="max-width:100px;">';
+
 					var infowndw = new google.maps.InfoWindow({
-						content:
-							post.name + " posted: " + "<br>"
-							+ post.content + "<br>"
-							+ " on " + post.date + "<br>"
-							+ '<img class="img-fluid" src="' + post.imgData + '" alt="Post Image" style="max-width:100px;">'
+						content: contentStr
 					});
 
 					mkr.addListener('click', function () {
