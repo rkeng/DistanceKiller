@@ -20,6 +20,45 @@ $(function() {
       ];
       sessionStorage.setItem('families', JSON.stringify(families));
    }
+   if (!sessionStorage.getItem('posts')) {
+      let posts = [
+         {
+            category:"work",
+            content:"Working hard or hardly working?",
+            imgData:"http://localhost:5500/post.html",
+            date:"11/25/2018",
+            owner:"ryan@ucsd.edu",
+            name:"Ryan",
+            position:{"lat":37.7749295,"lng":-122.41941550000001},
+            location:"San Fransisco",
+            uniqueId:"1543202264478ryan@ucsd.eduSanFransisco"
+         },
+         {
+            category:"travel",
+            content:"I want to visit this place someday!",
+            imgData:"http://localhost:5500/post.html",
+            date:"11/25/2018",
+            owner:"ying@ucsd.edu",
+            name:"Ying",
+            position:{"lat":-33.8688197,"lng":151.20929550000005},
+            location:"Sydney",
+            uniqueId:"1543207290276ying@ucsd.eduSydney"
+         },
+         {
+            category:"fun",
+            content:"Wow everything is so cheap",
+            imgData:"http://localhost:5500/post.html",
+            date:"11/25/2018",
+            owner:"joy@ucsd.edu",
+            name:"Joy",
+            position:{"lat":25.0329636,"lng":121.56542680000007},
+            location:"Taipei",
+            uniqueId:"1543207512556joy@ucsd.eduTaipei"
+         }
+      ];
+      sessionStorage.setItem('posts', JSON.stringify(posts));
+   }
+
 
    // get loginStatus
    let loginStatus;

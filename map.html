@@ -103,28 +103,7 @@
 				center: { lat: 0, lng: 0 }
 			});
 
-			// var contentString = 'Ying wants to visit here!';
-			var currentLoc = 'Your current location is here!';
-
-			// var infowindow = new google.maps.InfoWindow({
-			// 	content: contentString
-			// });
-
-			var infowindow2 = new google.maps.InfoWindow({
-				content: currentLoc
-			});
-
-			// var image = './img/purple.png';
 			var image1 = './img/red.png';
-			var marker = new google.maps.Marker({
-				// position: { lat: -33.890, lng: 151.274 },
-				// map: map,
-				// icon: image
-			});
-
-			// marker.addListener('click', function () {
-			// 	infowindow.open(map, marker);
-			// })
 
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function (position) {
@@ -132,7 +111,8 @@
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
-
+					
+					var infowindow2 = new google.maps.InfoWindow({});
 					infowindow2.setPosition(pos);
 					infowindow2.setContent('You are here!');
 					var marker2 = new google.maps.Marker({
@@ -140,7 +120,10 @@
 						map: map,
 						icon: image1
 					});
-					infowindow2.open(map);
+					infowindow2.open(map, marker2);
+					marker2.addListener('click', function () {
+						infowindow2.open(map, marker2);
+					})
 					map.setCenter(pos);
 				}, function () {
 					handleLocationError(true, infoWindow, map.getCenter());
@@ -150,8 +133,7 @@
 				handleLocationError(false, infoWindow, map.getCenter());
 			}
 
-			// var image = './img/purple.png';
-
+			var marker = new google.maps.Marker({});
 			marker.addListener('click', function () {
 				infowindow2.open(map, marker2);
 			})
@@ -215,7 +197,7 @@
 						map: map
 					});
 
-					let contentStr =  post.name + " posted: <br>" + post.content + "<br> on " + post.date+ "<br>";
+					let contentStr = post.name + " posted: <br>" + post.content + "<br> on " + post.date + "<br>";
 					if (!post.imgData.endsWith("post.html")) contentStr += '<img class="img-fluid" src="' + post.imgData + '" alt="Post Image" style="max-width:100px;">';
 
 					var infowndw = new google.maps.InfoWindow({

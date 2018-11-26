@@ -54,7 +54,7 @@ if (sessionStorage.getItem('posts')) {
 
     console.log(sessionStorage.getItem('loginStatus'));
     if (feeds[i].owner == JSON.parse(sessionStorage.getItem('loginStatus')).user.email) {
-      newCardHTML += '<button class="btn btn-outline-danger" onclick="deleteFeed(\'' + feedId + '\')">Delete feed</button>';
+      newCardHTML += '<button class="btn btn-outline-danger" onclick="deleteFeed(\'' + feedId + '\')">Delete Post</button>';
     }
 
     newCard.innerHTML = newCardHTML;
