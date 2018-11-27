@@ -45,6 +45,28 @@ $(function() {
             uniqueId:"1543207290276ying@ucsd.eduSydney"
          },
          {
+            category:"travel",
+            content:"Good place to visit!",
+            imgData:"http://localhost:5500/post.html",
+            date:"11/25/2018",
+            owner:"ryan@ucsd.edu",
+            name:"Ryan",
+            position:{"lat":41.878113,"lng":-87.629799},
+            location:"Chicago",
+            uniqueId:"1543202264478ryan@ucsd.eduChicago"
+         },
+         {
+            category:"food",
+            content:"Great food here!",
+            imgData:"http://localhost:5500/post.html",
+            date:"11/25/2018",
+            owner:"ying@ucsd.edu",
+            name:"Ying",
+            position:{"lat":46.227638,"lng":2.213749},
+            location:"France",
+            uniqueId:"1543207290276ying@ucsd.eduFrance"
+         },  
+         {
             category:"fun",
             content:"Wow everything is so cheap",
             imgData:"http://localhost:5500/post.html",
