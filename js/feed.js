@@ -43,15 +43,41 @@ if (sessionStorage.getItem('posts')) {
       + '<div class="card-body">'
       + '<h5 class="card-title" id="feed' + feedId + '-owner">' + feeds[i].name + '</h5>'
       + '<hr>'
-      + '<p class="card-text" id="' + feedId + '-text">' + feeds[i].content + '</p>'
-      + '<div class="text-right" style="padding-bottom:10px; padding-top:10px">'
-      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].date + '</p>';
+      + '<p class="card-text" id="' + feedId + '-text">' + feeds[i].content + '</p>';
+
+    if (!feeds[i].imgData.endsWith("post.html")) newCardHTML += '<img class="img-fluid" src="' + feeds[i].imgData + '" alt="Post Image">';
+
+    newCardHTML += '<div class="text-right" style="padding-bottom:10px; padding-top:10px">'
+      + '<div class="card-text" id="' + feedId + '-time">' + feeds[i].date + '</div>'
+      + '</div>';
     // + '<button class="btn btn-outline-success" style="margin-right:3px" type= "button"' + feedId + " >Like feed</button >";
 
     console.log(sessionStorage.getItem('loginStatus'));
     if (feeds[i].owner == JSON.parse(sessionStorage.getItem('loginStatus')).user.email) {
-      newCardHTML += '<button class="btn btn-outline-danger" onclick="deleteFeed(\'' + feedId + '\')">Delete feed</button>';
+      newCardHTML += '<button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete Post</button>';
+      // <!-- Modal -->
+      newCardHTML += '<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">'
+        + '<div class="modal-dialog modal-dialog-centered" role="document">'
+        + '<div class="modal-content">'
+        + '<div class="modal-header">'
+        + '	<h5 class="modal-title" id="exampleModalCenterTitle">Are you sure to delete this post?</h5>'
+        + '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
+        + '<span aria-hidden="true">&times;</span>'
+        + '</button>'
+        + '</div>'
+        + '	<div class="modal-body">'
+        + '	Once you&lsquo;ve deleted the post, you can revert back.'
+        + '</div>'
+        + '<div class="modal-footer">'
+        + '<button class="btn btn-success" data-dismiss="modal" onclick="deleteFeed(\'' + feedId + '\')">Yes, delete it.</a>'
+        + '<button class="btn btn-secondary" data-dismiss="modal">No, please keep</button>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
     }
+
+
 
     newCard.innerHTML = newCardHTML;
     var parent = document.getElementById("feedSection");
@@ -61,7 +87,16 @@ if (sessionStorage.getItem('posts')) {
   function deleteFeed(id) {
     var child = document.getElementById(id);
     child.parentNode.removeChild(child);
-    feeds = feeds.filter(function(el) { return el.uniqueId != id; }); 
+    feeds = feeds.filter(function (el) { return el.uniqueId != id; });
     sessionStorage.setItem('posts', JSON.stringify(feeds));
   }
+}
+
+var btns = document.getElementsByClassName("btn-secondary");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
 }
