@@ -22,6 +22,7 @@ $(function () {
       let invalidInput = false;
 
       let avatarURL = $('#hide-image').attr('src');
+      let profilePic = $('#profilePic').attr('src');
       let profileName = $('#name').val();
       let profileDOB = $('#birthDate').val();
       let profilePwd = $('#newpass').val();
@@ -45,6 +46,11 @@ $(function () {
          if (avatarURL == "./img/profile7.png") loginStatus.user.cred.avtr = 7;
          if (avatarURL == "./img/profile8.png") loginStatus.user.cred.avtr = 8;
          if (avatarURL == "./img/profile9.png") loginStatus.user.cred.avtr = 9;
+      }
+
+      // update profile pic
+      if (!profilePic.endsWith("profile.html")) {
+         loginStatus.user.cred.profilePic = profilePic;
       }
 
       // update name
@@ -112,4 +118,17 @@ $(function () {
 $('.img-click').click(function () {
    $('#hide-image').attr('src', $(this).attr('src'));
    $('#hide-image').attr('style', "display:true");
+});
+
+function readURL(input) {
+   if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+         document.getElementById('profilePic').src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+   }
+}
+$("#profilePicUpload").change(function () {
+   readURL(this);
 });
