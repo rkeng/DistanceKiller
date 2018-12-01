@@ -41,30 +41,14 @@
 		<div class="row">
 			<h1 id="welcome">Welcome to DistanceKiller</h1>
 		</div>
-		<!-- <div class="row under-h1">
-			<div class="col-md-4 text-center">
-				<a href="./post.html" class="btn btn-success btn-spacing">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a><br>
-				<a href="./feed.html" class="btn btn-feed btn-spacing">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a><br>
-				<a href="./map.html" class="btn btn-map btn-spacing">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
-				<p>More family members to add?<br> Here's your family code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i
-						 class="fas fa-md fa-question-circle"></i></span>:<br>
-					<code id="codeDisplay"></code><br> Share it with your family.</p>
-			</div>
-			<div class="col-md-8" id="avatarBlock">
-				<div class="avatar-align text-center" id="curUser">
-					<span class="avatar"></span><br>
-					<a href="./profile.html"><span class="avatar-name"></span></a>
-				</div>
-			</div>
-		</div> -->
-		<div class="row">
+		<div class="row spacing">
 			<div>
 				<a href="./post.html" class="btn btn-success btn-spacing">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
 				<a href="./feed.html" class="btn btn-feed btn-spacing">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
 				<a href="./map.html" class="btn btn-map btn-spacing">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row spacing">
 			<div class="col-md-4" id="avatarBlock">
 				<h4>Family Members</h4>
 				<div class="avatar-align text-center" id="curUser">
@@ -74,13 +58,21 @@
 				</div>
 			</div>
 			<div class="col-md-8">
-				<h4>Family Map Preview</h4>
-				<div class="row">
-					<div id="map" style="margin-left:auto; margin-right:auto; width:auto;height:300px"></div>
+				<div class="row spacing">
+					<div class="col-md-12">
+						<h4>Family Map Preview</h4>
+						<div id="map" style="margin-left:auto; margin-right:auto; width:auto;height:300px"></div>
+					</div>
 				</div>
-				<div class="row text-center float-right">
-					<p>More family members to add?<br> Here's your family code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i class="fas fa-md fa-question-circle"></i></span>:<br>
-					<code id="codeDisplay"></code><br> Share it with your family.</p>
+				<div class="row spacing">
+					<div class="col-md-12">
+						<h4>Family Code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i class="fas fa-sm fa-question-circle"></i></span></h4>
+						<p>
+							More members to add?
+							Your family code is: <code id="codeDisplay"></code>.
+							Share it with your family.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -144,7 +136,10 @@
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 1,
 					center: { lat: 0, lng: 0 },
-					disableDefaultUI: true
+					disableDefaultUI: true,
+					zoomControl: false,
+					scrollwheel: false,
+					disableDoubleClickZoom: true
 				});
 	
 				var image1 = './img/red.png';
@@ -206,18 +201,6 @@
 					}
 				};
 	
-				// var legend = document.getElementById('legend');
-				// for (var key in icons) {
-				// 	var type = icons[key];
-				// 	var name = type.name;
-				// 	var icon = type.icon;
-				// 	var div = document.createElement('div');
-				// 	div.innerHTML = '<img src="' + icon + '"> ' + name;
-				// 	legend.appendChild(div);
-				// }
-	
-				// map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
-	
 				let posts;
 				if (sessionStorage.getItem('posts')) {
 					posts = JSON.parse(sessionStorage.getItem('posts'));
@@ -240,26 +223,10 @@
 							icon: image,
 							map: map
 						});
-	
-						// let contentStr = post.name + " posted: <br>" + post.content + "<br> on " + post.date + "<br>";
-						// if (!post.imgData.endsWith("post.html")) contentStr += '<img class="img-fluid" src="' + post.imgData + '" alt="Post Image" style="max-width:100px;">';
-	
-						// var infowndw = new google.maps.InfoWindow({
-						// 	content: contentStr
-						// });
-	
-						// mkr.addListener('click', function () {
-						// 	infowndw.open(map, mkr);
-						// })
 					});
 				}
 			}
 		</script>
-		<!--Load the API from the specified URL
-			* The async attribute allows the browser to render the page while the API loads
-			* The key parameter will contain your own API key (which is not needed for this tutorial)
-			* The callback parameter executes the initMap() function
-			-->
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJwIni_tdDIFJl2dTESyFHkinVemJN96w&callback=initMap">
 		</script>
 </body>
