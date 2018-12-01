@@ -8,7 +8,7 @@ $(function () {
    let users = JSON.parse(sessionStorage.getItem('users'));
    let families = JSON.parse(sessionStorage.getItem('families'));
    let loginStatus = JSON.parse(sessionStorage.getItem('loginStatus'));
-   let curUser = Object.assign({}, loginStatus.user);;
+   let curUser = Object.assign({}, loginStatus.user);
 
    // populate profile input fields
    $('#email').val(curUser.email);
@@ -129,6 +129,7 @@ function readURL(input) {
       reader.readAsDataURL(input.files[0]);
    }
 }
+
 $("#profilePicUpload").change(function () {
    readURL(this);
 });
