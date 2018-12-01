@@ -15,3 +15,7 @@
 	text-align: float-right;
 	min-height: 100vh;
  } 
+
+ img[src=""] {
+	display: none;
+}

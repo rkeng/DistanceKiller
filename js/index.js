@@ -9,7 +9,7 @@ $(function () {
 
    let familyCode = loginStatus.user.code;
    $('#codeDisplay').text(familyCode);
-
+	let dateBirth = loginStatus.user.dob;
    let users;
    let families;
 
@@ -24,6 +24,7 @@ $(function () {
 	let fMemName = [];
 	let fMemAvatar = [];
 	let fMemProfilePic = [];
+	let fMemBirthday = [];
 
 	families.forEach(f => {
 		if (f.code == familyCode) {
@@ -36,12 +37,13 @@ $(function () {
 				fMemName.push(users[i].cred.name);
 				fMemAvatar.push(users[i].cred.avtr);
 				fMemProfilePic.push(users[i].cred.profilePic);
+				fMemBirthday.push(users[i].cred.dob);
 				break;
 			}
 		}
 	})
 
-	console.log(fMemName);
+	console.log(fMemBirthday);
 
 	// merge names and emails
 	let nameEmailPairs = {};
@@ -59,6 +61,12 @@ $(function () {
 		emailPicPairs[fMemEmail[i]] = fMemProfilePic[i];
 	}
 
+	// merge names and birthdays
+	let nameDobPairs = {};
+	for (let i = 0; i<fMemName.length; i++) {
+		nameDobPairs[fMemName[i]] = fMemBirthday[i];
+	}
+
 	if (loginStatus.user.cred.profilePic) {
 		$('#curUser .avatar').append(
 			'<img src="'+loginStatus.user.cred.profilePic+'" class="avatar-width">'
@@ -69,6 +77,7 @@ $(function () {
 			'<img src="./img/profile'+loginStatus.user.cred.avtr+'.png" class="avatar-width">'
 		);
 	}
+
 	$('#curUser .avatar-name').text(loginStatus.user.cred.name);
 
 	// display other family members' names and avatars
@@ -78,7 +87,7 @@ $(function () {
 				'<div class="avatar-align text-center" id="'+nameEmailPairs[name]+'">'+
 					'<span class="avatar-minus" data-id="'+nameEmailPairs[name]+'" data-name="'+name+'" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-minus-circle"></i></span>'+
 					'<span class="avatar"></span><br>'+
-					'<span class="avatar-name">'+name+'</span>'+
+					'<span class="avatar-name" dob="'+nameDobPairs[name]+'" email="'+nameEmailPairs[name]+'"data-name="'+name+'" data-toggle="modal" data-target="#profileModalCenter"><a href="#">'+name+'</a></span>'+
 				'</div>');
 		}
 	})
@@ -103,6 +112,14 @@ $(function () {
 	})
 
 	let tgtFamMem;
+
+	// family member profile modal
+	$('.avatar-name').click(function(){
+		$('.profile-name').text($(this).attr('data-name'));
+		$('.profile-email').text($(this).attr('email'));
+		$('.profile-dob').text($(this).attr('dob'));
+	})
+
 	// delete family member modal
 	$('.avatar-minus').click(function(){
 		$('.del-family').text($(this).attr('data-name'));

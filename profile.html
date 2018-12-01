@@ -48,10 +48,10 @@
 						<div class="col-md-12">
 
 							<div class="form-group row">
-								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">Profile Picture
+								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">My Avatar
 								</label>
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-									Change my profile picture
+									Change my avatar
 									<span class="caret"></span>
 								</a>
 
@@ -142,13 +142,10 @@
 								</div>
 							</div>
 
-							<div class="form-group row">
-								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">Or Upload</label>
+							<div class="form-group">
+								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">Or Upload Profile Pic</label>
 								<input type="file" accept="image/*" id="profilePicUpload">
-								<img id="profilePic" src="" alt="Profile Picture" hidden>
-								<div>
-									<img src="" id="hide-image" style="display: none">
-								</div>
+								<img id="profilePic" class="img-fluid" src="" alt="Profile Picture" style="max-width:100px">
 							</div>
 
 							<div class="form-group row">
@@ -205,6 +202,8 @@
 									<button id="update" name="submit" data-toggle="modal" data-target="#exampleModalCenter" type="submit" class="btn btn-primary">Update
 										Profile
 									</button>
+									&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+									<a href="./" class="btn btn-secondary">Cancel</a>
 								</div>
 							</div>
 						</div>
@@ -220,12 +219,6 @@
 			</span>
 		</a>
 	</div>
-
-	<!-- <div class="fixed-top">
-		<span class="float-right text-center top-right-spacing">
-			<button id="logoffBtn" class="btn btn-danger">Log Off</button>
-		</span>
-	</div> -->
 
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 	 aria-hidden="true">
