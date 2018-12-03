@@ -10,3 +10,9 @@ function generateCode() {
       }
    return code;
 }
+
+// log off
+$('#logoffBtn').click(function () {
+sessionStorage.removeItem('loginStatus');
+location.href = "./login.html";
+})

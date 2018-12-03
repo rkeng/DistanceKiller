@@ -1,9 +1,4 @@
 $(function () {
-   // log off
-   $('#logoffBtn').click(function () {
-      sessionStorage.removeItem('loginStatus');
-      location.href = "./login.html";
-   })
 
    let users = JSON.parse(sessionStorage.getItem('users'));
    let families = JSON.parse(sessionStorage.getItem('families'));

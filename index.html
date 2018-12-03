@@ -32,17 +32,48 @@
   <![endif]-->
 
 	<!-- Add your site or application content here -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand" href="#">Home</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="./post.html">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./feed.html">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./map.html">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
+				</li>
+			</ul>
+			<ul class="navbar-nav my-2 my-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="./profile.html">Profile&nbsp;&nbsp;<i class="fas fa-cog"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="" id="logoffBtn">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="container page-margin">
-		<div class="fixed-top text-right">
+		<!-- <div class="fixed-top text-right">
 			<a href="./profile.html">
 				<span class="float-right text-center top-right-spacing"><i class="fas fa-3x fa-cog" style="color:black"></i></span>
 			</a>
-		</div>
+		</div> -->
 		<div class="row">
-			<h1 id="welcome">Welcome to DistanceKiller</h1>
+			<div class="col-md-12">
+				<h1 id="welcome">Welcome to DistanceKiller</h1>
+			</div>
 		</div>
 		<div class="row spacing">
-			<div>
+			<div class="col-md-12">
 				<a href="./post.html" class="btn btn-success btn-spacing">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
 				<a href="./feed.html" class="btn btn-feed btn-spacing">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
 				<a href="./map.html" class="btn btn-map btn-spacing">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
@@ -54,19 +85,22 @@
 				<div class="avatar-align text-center" id="curUser">
 					<!-- <span class="avatar"><i class="fas fa-6x fa-user-circle"></i></span><br> -->
 					<span class="avatar"></span><br>
-				   <a href="./profile.html"><span class="avatar-name"></span></a>
+					<a href="./profile.html"><span class="avatar-name"></span></a>
 				</div>
 			</div>
 			<div class="col-md-8">
 				<div class="row spacing">
 					<div class="col-md-12">
 						<h4>Family Map Preview</h4>
-						<div id="map" style="margin-left:auto; margin-right:auto; width:auto;height:300px"></div>
+						<a href="./map.html">
+							<div id="map" style="margin-left:auto; margin-right:auto; width:auto;height:300px"></div>
+						</a>
 					</div>
 				</div>
 				<div class="row spacing">
 					<div class="col-md-12">
-						<h4>Family Code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i class="fas fa-sm fa-question-circle"></i></span></h4>
+						<h4>Family Code <span data-toggle="tooltip" data-placement="top" title="Each family will have a unique family code that is needed when a new member wants to join your family."><i
+								 class="fas fa-sm fa-question-circle"></i></span></h4>
 						<p>
 							More members to add?
 							Your family code is: <code id="codeDisplay"></code>.
@@ -101,22 +135,22 @@
 	</div>
 
 	<div class="modal fade" id="profileModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-		  <div class="modal-content">
-			  <div class="modal-header">
-				  <h5 class="modal-title" id="profileModalCenterTitle"><span class="profile-name"></span>'s Profile</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					  <span aria-hidden="true">&times;</span>
-				  </button>
-			  </div>
-			  <div class="modal-body text-center">
-				  Email: <span class="profile-email"></span><br>
-				  Birthday: <span class="profile-dob"></span><br>
-			  </div>
-		  </div>
-	  </div>
-  </div>
+	 aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="profileModalCenterTitle"><span class="profile-name"></span>'s Profile</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					Email: <span class="profile-email"></span><br>
+					Birthday: <span class="profile-dob"></span><br>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	 crossorigin="anonymous"></script>
@@ -130,105 +164,106 @@
 
 	<script>
 
-			// This example adds a marker to indicate the position of Bondi Beach in Sydney,
-			// Australia.
-			function initMap() {
-				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 1,
-					center: { lat: 0, lng: 0 },
-					disableDefaultUI: true,
-					zoomControl: false,
-					scrollwheel: false,
-					disableDoubleClickZoom: true
-				});
-	
-				var image1 = './img/red.png';
-	
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(function (position) {
-						var pos = {
-							lat: position.coords.latitude,
-							lng: position.coords.longitude
-						};
-						
-						var infowindow2 = new google.maps.InfoWindow({});
-						infowindow2.setPosition(pos);
-						infowindow2.setContent('You are here!');
-						var marker2 = new google.maps.Marker({
-							position: { lat: position.coords.latitude, lng: position.coords.longitude },
-							map: map,
-							icon: image1
-						});
-						infowindow2.open(map, marker2);
-						marker2.addListener('click', function () {
-							infowindow2.open(map, marker2);
-						})
-						map.setCenter(pos);
-					}, function () {
-						handleLocationError(true, infoWindow, map.getCenter());
+		// This example adds a marker to indicate the position of Bondi Beach in Sydney,
+		// Australia.
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 1,
+				center: { lat: 0, lng: 0 },
+				disableDefaultUI: true,
+				draggable: false,
+				zoomControl: false,
+				scrollwheel: false,
+				disableDoubleClickZoom: true
+			});
+
+			// var image1 = './img/red.png';
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					var infowindow2 = new google.maps.InfoWindow({});
+					infowindow2.setPosition(pos);
+					infowindow2.setContent('You are here!');
+					var marker2 = new google.maps.Marker({
+						position: { lat: position.coords.latitude, lng: position.coords.longitude },
+						map: map
+						// icon: image1
 					});
-				} else {
-					// Browser doesn't support Geolocation
-					handleLocationError(false, infoWindow, map.getCenter());
-				}
-	
-				var marker = new google.maps.Marker({});
-				marker.addListener('click', function () {
 					infowindow2.open(map, marker2);
-				})
-	
-				var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-				var icons = {
-					currloc: {
-						name: 'Current Location',
-						icon: '../img/red.png'
-					},
-					work: {
-						name: 'Work',
-						icon: '../img/blue.png'
-					},
-					travel: {
-						name: 'Travel',
-						icon: '../img/purple.png'
-					},
-					food: {
-						name: 'Food',
-						icon: '../img/yellow.png'
-					},
-					fun: {
-						name: 'Fun',
-						icon: '../img/green.png'
-					}
-				};
-	
-				let posts;
-				if (sessionStorage.getItem('posts')) {
-					posts = JSON.parse(sessionStorage.getItem('posts'));
-					// console.log(post);
-	
-					posts.forEach(post => {
-						// categoy icon
-						if (post.category === 'work') {
-							image = '../img/blue.png';
-						} else if (post.category === 'travel') {
-							image = '../img/purple.png';
-						} else if (post.category === 'food') {
-							image = '../img/yellow.png';
-						} else if (post.category === 'fun') {
-							image = '../img/green.png';
-						}
-	
-						var mkr = new google.maps.Marker({
-							position: post.position,
-							icon: image,
-							map: map
-						});
-					});
-				}
+					marker2.addListener('click', function () {
+						infowindow2.open(map, marker2);
+					})
+					map.setCenter(pos);
+				}, function () {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+			} else {
+				// Browser doesn't support Geolocation
+				handleLocationError(false, infoWindow, map.getCenter());
 			}
-		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJwIni_tdDIFJl2dTESyFHkinVemJN96w&callback=initMap">
-		</script>
+
+			var marker = new google.maps.Marker({});
+			marker.addListener('click', function () {
+				infowindow2.open(map, marker2);
+			})
+
+			var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+			var icons = {
+				currloc: {
+					name: 'Current Location',
+					icon: '../img/red.png'
+				},
+				work: {
+					name: 'Work',
+					icon: '../img/blue.png'
+				},
+				travel: {
+					name: 'Travel',
+					icon: '../img/purple.png'
+				},
+				food: {
+					name: 'Food',
+					icon: '../img/yellow.png'
+				},
+				fun: {
+					name: 'Fun',
+					icon: '../img/green.png'
+				}
+			};
+
+			let posts;
+			if (sessionStorage.getItem('posts')) {
+				posts = JSON.parse(sessionStorage.getItem('posts'));
+				// console.log(post);
+
+				posts.forEach(post => {
+					// categoy icon
+					if (post.category === 'work') {
+						image = '../img/blue.png';
+					} else if (post.category === 'travel') {
+						image = '../img/purple.png';
+					} else if (post.category === 'food') {
+						image = '../img/yellow.png';
+					} else if (post.category === 'fun') {
+						image = '../img/green.png';
+					}
+
+					var mkr = new google.maps.Marker({
+						position: post.position,
+						icon: image,
+						map: map
+					});
+				});
+			}
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJwIni_tdDIFJl2dTESyFHkinVemJN96w&callback=initMap">
+	</script>
 </body>
 
 </html>
