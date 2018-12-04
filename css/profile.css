@@ -19,3 +19,7 @@
  img[src=""] {
 	display: none;
 }
+
+.dropdown-menu.show {
+	top: 65px !important;
+}

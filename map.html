@@ -69,9 +69,38 @@
 </head>
 
 <body>
-	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand" href="./">Home</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="./post.html">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./feed.html">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="./map.html">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
+				</li>
+			</ul>
+			<ul class="navbar-nav my-2 my-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="./profile.html">Profile&nbsp;&nbsp;<i class="fas fa-cog"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="" id="logoffBtn">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container page-margin">
 		<h1 style="display: inline-block">Family Map</h1>
-		<a href="./feed.html" class="btn btn-feed btn-spacing" style="margin-top:0.5em; margin-left:1em">View Posts <i class="fas fa-comment-dots"></i></a>
+		<!-- <a href="./feed.html" class="btn btn-feed btn-spacing" style="margin-top:0.5em; margin-left:1em">View Posts <i class="fas fa-comment-dots"></i></a> -->
 		<div id="map" style="margin-left:auto; margin-right:auto; width:100%;height:750px"></div>
 		<div id="legend">
 			<h1>Legend</h1>
@@ -79,13 +108,13 @@
 	</div>
 	</div>
 
-	<div class="fixed-bottom">
+	<!-- <div class="fixed-bottom">
 		<a href="./">
 			<span class="float-left text-center bottom-left-spacing">
 				<i class="fas fa-3x fa-arrow-circle-left" style="color:black"></i>
 			</span>
 		</a>
-	</div>
+	</div> -->
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	 crossorigin="anonymous"></script>
@@ -113,7 +142,7 @@
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
-					
+
 					var infowindow2 = new google.maps.InfoWindow({});
 					infowindow2.setPosition(pos);
 					infowindow2.setContent('You are here!');

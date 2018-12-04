@@ -32,25 +32,54 @@
 <!-- shift option f -->
 
 <body>
-	<div class="row center-screen-profile">
-		<div class="col-md-7">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand" href="./">Home</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="./post.html">Create a Post&nbsp;&nbsp;<i class="fas fa-map-pin"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./feed.html">Family Posts&nbsp;&nbsp;<i class="fas fa-comment-dots"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./map.html">Family Map&nbsp;&nbsp;<i class="fas fa-globe-americas"></i></a>
+				</li>
+			</ul>
+			<ul class="navbar-nav my-2 my-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" href="./profile.html">Profile&nbsp;&nbsp;<i class="fas fa-cog"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="" id="logoffBtn">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container page-margin">
+		<div class="center-screen-profile">
 			<div class="card">
 				<div class="card-body">
 					<!-- <button id="logoffBtn" class="btn btn-danger float-right">Log Off</button> -->
 					<div class="row">
 						<div class="col-md-12">
-							<h4>Your Profile</h4>
+							<h1>Your Profile</h1>
 							<hr>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-
+							<h5>Profile Picture</h5>
 							<div class="form-group row">
 								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">My Avatar
 								</label>
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-									Change my avatar
+									Choose an avatar
 									<span class="caret"></span>
 								</a>
 
@@ -141,15 +170,12 @@
 							</div>
 
 							<div class="form-group">
-								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">Or</label>
-							</div>
-							
-							<div class="form-group">
-								<label for="hide-image" style="text-align: right" class="col-3 col-form-label">Upload Profile Pic</label>
+								<label for="hide-image" style="text-align: right" class="col-3 col-form-label"><b>Or</b> Upload Image</label>
 								<input type="file" accept="image/*" id="profilePicUpload">
 								<img id="profilePic" class="img-fluid" src="" alt="Profile Picture" style="max-width:100px">
 							</div>
 							<hr>
+							<h5>Personal Info</h5>
 							<p class="required">* Required fields</p>
 							<div class="form-group row">
 								<label for="email" style="text-align: right" class="col-3 col-form-label">Email</label>
@@ -174,6 +200,8 @@
 								</div>
 							</div>
 
+							<hr>
+							<h5>Security</h5>
 							<div class="form-group row">
 								<label for="famCode" style="text-align: right" class="col-3 col-form-label">New Family Code
 								</label>
@@ -215,13 +243,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="fixed-bottom">
+	<!-- <div class="fixed-bottom">
 		<a href="./index.html">
 			<span class="float-left text-center bottom-left-spacing">
 				<i class="fas fa-3x fa-arrow-circle-left" style="color:black"></i>
 			</span>
 		</a>
-	</div>
+	</div> -->
 
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 	 aria-hidden="true">
