@@ -7,8 +7,8 @@ $(function() {
    } else {
 		users = [
          {email: "ryan@ucsd.edu", code: "UCSD19", cred: {name: "Ryan", pwd: "123", avtr: 9, dob: "1996-12-06"}},
-         {email: "joy@ucsd.edu", code: "UCSD19", cred: {name: "Joy", pwd: "123", avtr: 5}},
-         {email: "ying@ucsd.edu", code: "UCSD19", cred: {name: "Ying", pwd: "123", avtr: 3}}
+         {email: "joy@ucsd.edu", code: "UCSD19", cred: {name: "Joy", pwd: "123", avtr: 5, dob: "1997-07-27"}},
+         {email: "ying@ucsd.edu", code: "UCSD19", cred: {name: "Ying", pwd: "123", avtr: 3, dob: "1996-10-15"}}
 		];
 		sessionStorage.setItem('users', JSON.stringify(users));
    }

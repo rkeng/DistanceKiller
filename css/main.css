@@ -111,8 +111,8 @@ textarea {
     margin-left: 30px;
 }
 
-/* Button spacing */
-.btn-spacing {
+/* Button and row spacing */
+.btn-spacing, .row.spacing {
     margin-bottom: 20px;
 }
 

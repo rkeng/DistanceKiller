@@ -6,7 +6,6 @@ function Feed(label, text, location, owner, time) {
   this.time = time;
 }
 
-var i;
 var feeds;
 if (sessionStorage.getItem('posts')) {
   feeds = JSON.parse(sessionStorage.getItem('posts'));
@@ -54,49 +53,36 @@ if (sessionStorage.getItem('posts')) {
 
     console.log(sessionStorage.getItem('loginStatus'));
     if (feeds[i].owner == JSON.parse(sessionStorage.getItem('loginStatus')).user.email) {
-      newCardHTML += '<button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete Post</button>';
-      // <!-- Modal -->
-      newCardHTML += '<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">'
-        + '<div class="modal-dialog modal-dialog-centered" role="document">'
-        + '<div class="modal-content">'
-        + '<div class="modal-header">'
-        + '	<h5 class="modal-title" id="exampleModalCenterTitle">Are you sure to delete this post?</h5>'
-        + '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
-        + '<span aria-hidden="true">&times;</span>'
-        + '</button>'
-        + '</div>'
-        + '	<div class="modal-body">'
-        + '	Once you&lsquo;ve deleted the post, you can revert back.'
-        + '</div>'
-        + '<div class="modal-footer">'
-        + '<button class="btn btn-success" data-dismiss="modal" onclick="deleteFeed(\'' + feedId + '\')">Yes, delete it.</a>'
-        + '<button class="btn btn-secondary" data-dismiss="modal">No, please keep</button>'
-        + '</div>'
-        + '</div>'
-        + '</div>'
-        + '</div>'
+      newCardHTML += '<button class="btn btn-outline-danger" data-toggle="modal" data-id="'+feedId+'" data-target="#exampleModalCenter">Delete Post</button>';
     }
-
-
 
     newCard.innerHTML = newCardHTML;
     var parent = document.getElementById("feedSection");
     parent.appendChild(newCard);
   }
-
-  function deleteFeed(id) {
-    var child = document.getElementById(id);
-    child.parentNode.removeChild(child);
-    feeds = feeds.filter(function (el) { return el.uniqueId != id; });
-    sessionStorage.setItem('posts', JSON.stringify(feeds));
-  }
 }
 
-var btns = document.getElementsByClassName("btn-secondary");
+// Delete feed
+function deleteFeed(id) {
+  var child = document.getElementById(id);
+  child.parentNode.removeChild(child);
+  feeds = feeds.filter(function (el) { return el.uniqueId != id; });
+  sessionStorage.setItem('posts', JSON.stringify(feeds));
+}
+// Delete feed confirmation
+let tgtPost;
+$(".btn-outline-danger").click(function(){
+  tgtPost = $(this).attr('data-id');
+})
+$("#confirmDelete").click(function(){
+  deleteFeed(tgtPost);
+})
+
+var btns = document.getElementsByClassName("btn-dark");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+    var current = document.getElementsByClassName("btn btn-dark active");
+    current[0].classList.remove("active");
+    this.classList.add("active");
   });
 }
