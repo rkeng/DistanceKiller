@@ -78,10 +78,10 @@ $("#confirmDelete").click(function(){
   deleteFeed(tgtPost);
 })
 
-var btns = document.getElementsByClassName("btn-dark");
+var btns = document.getElementsByClassName("btn btn-outline-warning");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("btn btn-dark active");
+    var current = document.getElementsByClassName("btn btn-outline-warning active");
     current[0].classList.remove("active");
     this.classList.add("active");
   });
